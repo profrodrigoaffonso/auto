@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/enviar_comando', 'App\Http\Controllers\ComandosController@enviarComando')->name('comandos.enviar');

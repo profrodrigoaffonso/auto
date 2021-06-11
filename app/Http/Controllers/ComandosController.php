@@ -9,13 +9,16 @@ use App\Models\Comandos;
 class ComandosController extends Controller
 {
     public function receber(){
-        $comando = Comandos::select()
-            ->where('id', 1)
-            ->first();
+        $comando = Comandos::findOrFail(1);
 
         if($comando->executado == 'n'){
-            Comandos::where('id', 1)
-                ->update(['executado' => 's']);
+            $comando->update(
+                [
+                    'executado' => 's'
+                ]
+            );
+            // Comandos::where('id', 1)
+            //     ->update(['executado' => 's']);
             echo $comando->comando;
         } else {
             echo '';            

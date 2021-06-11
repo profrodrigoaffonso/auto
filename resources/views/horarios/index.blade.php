@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Bancos</h1>
+    <h1>Horários</h1>
     <p><a href="{{ route('horarios.create') }}">Novo</a></p>
     <table class="table table-hover">
         <thead>

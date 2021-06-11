@@ -9,8 +9,8 @@
       Digite o código
       @endif
     </div>
-    <button type="button" class="btn btn-success" onclick="send('on')">ON</button>
-    <button type="button" class="btn btn-danger" onclick="send('off')">OFF</button>
+    <button type="button" class="btn btn-lg btn-success btn-block" onclick="send('on')">ON</button><br><br>
+    <button type="button" class="btn btn-lg btn-danger btn-block" onclick="send('off')">OFF</button>
 </form>
 <script>
     function send(comando){
