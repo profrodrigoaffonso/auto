@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Comandos extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['id', 'comando', 'executado'];
 }

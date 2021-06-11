@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Horarios;
+use App\Models\Comandos;
 
 
 class HorariosController extends Controller
@@ -56,6 +57,49 @@ class HorariosController extends Controller
 
         return redirect(route('horarios.index'));
 
+    }
+
+    public function temporizador(){
+        return view('horarios.temporizador');
+    }
+
+    public function temporizadorAlterar(Request $request){
+
+        $dados = $request->all();
+        
+        $data_hora = date('Y-m-d H:i');
+
+        $data_hora = date('Y-m-d H:i', strtotime('+ '.$dados['tempo'].'minutes', strtotime($data_hora)));
+
+        $horario = Horarios::findOrFail(3);
+
+        $horario->update([
+            'comando' => $dados['comando'],
+            'data_hora' => $data_hora
+        ]);
+
+        return redirect(route('horarios.temporizador'));
+
+    }
+
+    public function alterarComando(){
+        $data_inicio = date('Y-m-d H:i:00');
+        $data_fim = date('Y-m-d H:i:59');
+
+        $horario = Horarios::select('comando')
+            ->where('data_hora', $data_inicio)
+            ->first();
+        
+        if($horario){
+            $comando = Comandos::findOrFail(1);
+
+            $comando->update([
+                'comando' => $horario->comando,
+                'executado' => 'n'
+            ]);
+
+        }
+        
     }
 
 }

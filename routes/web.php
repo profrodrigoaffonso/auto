@@ -26,4 +26,6 @@ Route::prefix('horarios')->group(function(){
     Route::post('/store', 'App\Http\Controllers\HorariosController@store')->name('horarios.store');
     Route::get('/{id}/edit', 'App\Http\Controllers\HorariosController@edit')->name('horarios.edit');
     Route::post('/update', 'App\Http\Controllers\HorariosController@update')->name('horarios.update');
+    Route::get('/temporizador', 'App\Http\Controllers\HorariosController@temporizador')->name('horarios.temporizador');
+    Route::post('/temporizador_alterar', 'App\Http\Controllers\HorariosController@temporizadorAlterar')->name('horarios.temporizador.alterar');
 });

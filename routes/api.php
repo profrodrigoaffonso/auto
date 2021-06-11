@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/receber', 'App\Http\Controllers\ComandosController@receber')->name('receber.receber');
+Route::get('/alterar_comando', 'App\Http\Controllers\HorariosController@alterarComando')->name('horarios.alterar');
 
